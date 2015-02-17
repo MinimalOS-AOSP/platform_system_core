@@ -58,6 +58,13 @@ enum {
     HAL_PIXEL_FORMAT_RGB_565            = 4,
     HAL_PIXEL_FORMAT_BGRA_8888          = 5,
 
+
+#ifdef QCOM_HARDWARE
+    // Deprecated sRGB formats for source code compatibility
+    // Not for use in new code
+    HAL_PIXEL_FORMAT_sRGB_A_8888        = 0xC,
+    HAL_PIXEL_FORMAT_sRGB_X_8888        = 0xD,
+#endif
     /*
      * 0x100 - 0x1FF
      *
@@ -189,6 +196,11 @@ enum {
      * extra metadata to define.
      */
     HAL_PIXEL_FORMAT_RAW16 = 0x20,
+
+#ifdef QCOM_HARDWARE
+    // Temporary alias for source code compatibility; do not use in new code
+    HAL_PIXEL_FORMAT_RAW_SENSOR = HAL_PIXEL_FORMAT_RAW16,
+#endif
 
     /*
      * Android RAW10 format:
